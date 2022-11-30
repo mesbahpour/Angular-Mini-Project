@@ -1,0 +1,21 @@
+<app-header [title]="title" [length]="comments.length"></app-header>
+
+<div class="post-container" *ngIf="post">
+  <p class="title"> {{post.title}} </p>
+  <p class="body">{{post.body}}</p>
+
+  <div class="comment-body">
+    <div class="body-container">
+      <ul *ngFor="let comment of comments">
+        <div class="comment">
+          <p><i class="fa fa-envelope"></i>{{comment.email}}</p>
+          <p><i class="fa fa-pencil"></i>{{comment.name}}</p>
+          <p><i class="fa fa-comment-o"></i>{{comment.body}}</p>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="go-back">
+    <p class="go-back"><a [routerLink]="['/']"><i class="fa fa-arrow-left"></i>back to posts</a></p>
+  </div>
+</div>

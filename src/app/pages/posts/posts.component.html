@@ -1,0 +1,13 @@
+<app-header [title]="title" [length]="posts.length"></app-header>
+
+<div class="post-container text">
+  <div *ngFor="let post of posts">
+    <div class="post" (click)="navigateToCommentPage(post)">
+      <h2 class="flex-item postId">
+        <div>{{post.id}}</div>
+      </h2>
+      <p class="flex-item">{{ (post.title.length>40)? (post.title | slice:0:40)+'...':(post.title) }}</p>
+      <p class="flex-item"><a>Click here for more details</a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+
+@import "../src/assets/styles/mixins";
+@import "../src/assets/styles/variables";
+
+* {
+  @include reset;
+}
+
+html {
+  @include scrollbar;
+}
+
+.center {
+  text-align: center;
+}
+
+.text {
+  color: var(--text);
+}
