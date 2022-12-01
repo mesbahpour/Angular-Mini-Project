@@ -2,16 +2,16 @@
   height: var(--comment-container-heigh);
   margin: var(--padding-size);
   color: var(--text);
+  height: calc(100vh - 270px);
 
   .title {
-    // height: 10%;
     display: flex;
     align-items: center;
     background-color: var(--primary);
-    padding: var(--padding-size);
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     font-weight: bold;
+    padding: 18px;
   }
 
   .body {
