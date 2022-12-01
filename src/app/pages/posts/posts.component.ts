@@ -22,10 +22,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     private apiService: ApiService,
     private router: Router,
     private sharingService: SharingService
-  ) {
-    localStorage.removeItem('storedComments');
-    localStorage.removeItem('storedSelectedPost');
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getPosts();

@@ -24,16 +24,19 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private route: Router
   ) {
-    this.activatedRoute.params.subscribe(
-      (params) => (this.routeId = params['id'])
-    );
+    this.checkUrl();
   }
 
   ngOnInit(): void {
     this.getComments();
-    this.getSelectedPostValue();
+  }
 
-    // To avoid entering another url => Check if the post id matches the page url or not
+  //  Check if the post id matches the page url or not => To avoid entering another url
+  private checkUrl() {
+    this.getSelectedPostValue();
+    this.activatedRoute.params.subscribe(
+      (params) => (this.routeId = params['id'])
+    );
     if (this.routeId != this.post.id) {
       this.route.navigateByUrl('/');
     }
@@ -43,7 +46,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
     let retrievedObject: any = localStorage.getItem('storedSelectedPost');
     this.post = JSON.parse(retrievedObject);
   }
-
 
   private getComments() {
     this.subscription1$ = this.sharingService.comments$.subscribe((val) => {
