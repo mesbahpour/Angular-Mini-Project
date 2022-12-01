@@ -49,8 +49,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.subscription1$ = this.sharingService.comments$.subscribe((val) => {
       if (val) {
         this.comments = val;
-         //Because when we refresh the comment page, the data will be deleted, that's why I saved it in Localstorage.
-        localStorage.setItem('storedComments', JSON.stringify(val));
+        localStorage.setItem('storedComments', JSON.stringify(val)); //to Reload Current Page Without Losing data
       } else {
         let retrievedObject: any = localStorage.getItem('storedComments');
         this.comments = JSON.parse(retrievedObject);

@@ -44,10 +44,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.subscription2$ = this.apiService.getComments(post.id).subscribe({
       next: (data) => {
         this.sharingService.shareCommentsValue(data);
-
-        //To share the selected post to the next page, we can use both the services and the router, but when we refresh the comment page, the data will be deleted, that's why I saved it in Localstorage.
-        localStorage.setItem('storedSelectedPost', JSON.stringify(post));
-
+        localStorage.setItem('storedSelectedPost', JSON.stringify(post)); //to Reload Current Page Without Losing data
         this.router.navigate(['/comments', post.id]);
       },
       error: (error) => {},
